@@ -1,0 +1,22 @@
+Model Policy is a multi-licence repository.
+
+The licence for each file is declared through REUSE.toml and SPDX metadata:
+
+- EUPL-1.2: the Rust workspace, the web application, and the executable
+  rulebook and example organisation policy — first-party runtime code and
+  runtime policy;
+- Apache-2.0: JSON Schema interoperability contracts, sample evaluation inputs,
+  synthetic test fixtures and the generated Libre AI design-system output;
+- CC-BY-4.0: editorial documentation, first-party project records and the
+  curated governance dataset;
+- upstream terms: third-party material, including the self-hosted Fontsource
+  webfonts under OFL-1.1.
+
+Full licence texts are stored in LICENSES/.
+
+The organization-wide licensing policy — scope, precedence, historical grants,
+data and contribution rules — is the canonical one and is not restated here:
+https://github.com/libre-ai/libre-ai/blob/main/LICENSING.md
+
+Historical revisions previously published under MIT remain available under
+those terms. No previous licence grant is withdrawn.

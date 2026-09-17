@@ -1,0 +1,28 @@
+{
+  "name": "@libre-ai/model-policy",
+  "version": "0.1.0",
+  "private": true,
+  "license": "EUPL-1.2",
+  "type": "module",
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "scripts": {
+    "check:bun": "bun ../../node_modules/@libre-ai/governance/tools/quality/check-bun-minimum.ts",
+    "precheck:product-phases": "bun run check:bun",
+    "check:product-phases": "bun tools/check-product-phases.ts",
+    "pretest": "bun run check:bun",
+    "pretest:product-phases:coverage": "bun run check:bun",
+    "test": "bun test",
+    "test:product-phases:coverage": "bun test --coverage tools/check-product-phases.test.ts"
+  },
+  "dependencies": {
+    "@libre-ai/web-platform": "file:../../../application-development-toolkit/packages/web-platform",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1"
+  }
+}

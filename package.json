@@ -1,0 +1,53 @@
+{
+  "name": "@libre-ai/policy-gates",
+  "private": true,
+  "license": "EUPL-1.2",
+  "type": "module",
+  "exports": {
+    ".": "./packages/policy-core-ref/src/index.ts"
+  },
+  "types": "./packages/policy-core-ref/src/index.ts",
+  "packageManager": "bun@1.4.0-canary.1",
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "overrides": {
+    "fast-uri": "4.1.1",
+    "@libre-ai/governance": "file:../project-governance",
+    "@libre-ai/contracts-authority": "file:../schemas-and-contracts",
+    "@libre-ai/contracts": "file:../schemas-and-contracts/packages/sdk-ts",
+    "@libre-ai/envelope": "file:../schemas-and-contracts/packages/envelope",
+    "@libre-ai/ui": "file:../application-development-toolkit/packages/ui",
+    "@libre-ai/web-platform": "file:../application-development-toolkit/packages/web-platform",
+    "@libre-ai/testing": "file:../application-development-toolkit/packages/testing",
+    "@libre-ai/data": "file:../organization-data-lifecycle/packages/data",
+    "@libre-ai/rgpd-kit": "file:../organization-data-lifecycle/packages/rgpd-kit",
+    "@libre-ai/policy-core-ref": "file:packages/policy-core-ref",
+    "@libre-ai/auth-web": "file:../ai-work-supervision/packages/auth-web"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.3",
+    "@bytecodealliance/jco-transpile": "0.4.2",
+    "@libre-ai/contracts-authority": "file:../schemas-and-contracts",
+    "@libre-ai/governance": "file:../project-governance",
+    "@types/bun": "1.3.14",
+    "typescript": "7.0.2"
+  },
+  "scripts": {
+    "check:bun:runtime": "bun node_modules/@libre-ai/governance/tools/quality/check-bun-minimum.ts",
+    "check:bun": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-bun-manifests.ts",
+    "check:toolchain": "bun run check:bun && bun node_modules/@libre-ai/governance/tools/quality/check-toolchain.ts",
+    "check:wit": "bun run check:bun:runtime && bun scripts/check-vendored-wit.ts",
+    "check:app": "bun run check:bun:runtime && bun test --cwd packages/policy-core-ref && bun test --cwd apps/model-policy",
+    "check:secret-scan": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-secret-scan.ts",
+    "check:personal-data": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-personal-data-boundary.ts",
+    "lint": "bun run check:bun:runtime && biome ci .",
+    "pretest": "bun run check:bun",
+    "test": "cargo test --locked",
+    "check": "bun run check:bun && bun run check:toolchain && bun run check:wit && bun run check:app && bun run check:secret-scan && bun run check:personal-data && bun run lint"
+  },
+  "workspaces": [
+    "apps/model-policy",
+    "packages/policy-core-ref"
+  ]
+}

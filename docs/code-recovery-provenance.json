@@ -1,0 +1,720 @@
+{
+  "schemaVersion": "code-recovery.v1",
+  "files": [
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": ".cargo/config.toml",
+      "sourceBlob": "96b624fb3c2466d51b9ab4ac90409b0a5ef7b01a",
+      "destinationPath": ".cargo/config.toml",
+      "sha256": "91a502066e179b2525929d903b188b1b6bb10e6b105a81b33a834497c50481a4"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": ".gitignore",
+      "sourceBlob": "5a430e6a37059665b16bc9d2075c97607dff339d",
+      "destinationPath": ".gitignore",
+      "sha256": "19b23de57a80020117177f6f3a34b5b5ce98c2623a8e8e6e211453bbf6458bfa"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "Cargo.lock",
+      "sourceBlob": "77b7cdcdc328928c9328439b122ed5bc64599f03",
+      "destinationPath": "Cargo.lock",
+      "sha256": "24d5eea83a41430a3e6ae7c97fae56400848985aa914b96c6b28e2535ba33dff"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "Cargo.toml",
+      "sourceBlob": "59fe28f8f540607b6c8f0ae4c4dd3a0c4318b569",
+      "destinationPath": "Cargo.toml",
+      "sha256": "c84fdd9252ba9f89f6724b9025192e5d2796f277c21533c9dc7ab3cd57a12692"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "LICENSE",
+      "sourceBlob": "2d8a234831f5acc00963ead804a002d59c322b6e",
+      "destinationPath": "LICENSE",
+      "sha256": "c11aead6612406cd9b8f79fb309738377ff8bb04206b7424ad2c8ba63bd9d537"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "LICENSES/CC-BY-4.0.txt",
+      "sourceBlob": "13ca539f377dc705af32b8d2ce89262298ea2f06",
+      "destinationPath": "docs/source-licensing/policy/LICENSES/CC-BY-4.0.txt",
+      "sha256": "d557539df68e771cc1eedcc91d13f70fca930e508d11eedcafa4b15db49e3744"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "LICENSES/EUPL-1.2.txt",
+      "sourceBlob": "6d8cea430e21d06532225018850da91a3f44abf5",
+      "destinationPath": "LICENSES/EUPL-1.2.txt",
+      "sha256": "57fb42fbcd0b037ce528ed8f72f1ec095d67bc6825ecf1448ff39be1fe68a4b4"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "REUSE.toml",
+      "sourceBlob": "e896249dc8ce47ac6bbd4c9a5c737ecc3274f883",
+      "destinationPath": "REUSE.toml",
+      "sha256": "ae3fd895cf66ea9154118c3059936644005b45420736806f9fee193df2030eca"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/README.md",
+      "sourceBlob": "878171855dcf5b7add29a5d06a196e49fa85ca78",
+      "destinationPath": "apps/model-policy/README.md",
+      "sha256": "53e449ef3026529d0bb38487d2f444291b7114c21793671121ebd6f84ef3dec7"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/bun.lock",
+      "sourceBlob": "56e9d49b1d96b0da158ce6dfaa9a29a04bbb87cd",
+      "destinationPath": "apps/model-policy/bun.lock",
+      "sha256": "00653b6fffe2013cd8879287ef38791329c5bf6d88e7dc74e997104424c34241"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/bunfig.toml",
+      "sourceBlob": "6da50832496f592e22652a8ac763f9a45603df90",
+      "destinationPath": "apps/model-policy/bunfig.toml",
+      "sha256": "d84ae3730e3027de8e59dc485e82d7dfa4be83b8dc12c9c8f081ce05925cdfc5"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/package.json",
+      "sourceBlob": "773f93e726d68e165f1969c4577ef48f9f2e2662",
+      "destinationPath": "apps/model-policy/package.json",
+      "sha256": "750f5b53468d177584e6d3b0f26ee72e856b4a2a8c8204bcea2dffa64f45f158"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/fact-primitives.ts",
+      "sourceBlob": "a3c76b496d60feae2f23c371275762569d13f67a",
+      "destinationPath": "apps/model-policy/src/domain/fact-primitives.ts",
+      "sha256": "cf4f5207f8a9f38b700d31a1e7e33d5bd6e98bc8ab71de94343297eb5346f32c"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/model-snapshot.test.ts",
+      "sourceBlob": "a28af086c059712c82850a518e094dcbb935e894",
+      "destinationPath": "apps/model-policy/src/domain/model-snapshot.test.ts",
+      "sha256": "16c93c975aa3a1421661a253e264283d3e46c9ae34517f561579edb972c59034"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/model-snapshot.ts",
+      "sourceBlob": "8ae1c7e47cd05b683cb24dd777b23ab7d28624ed",
+      "destinationPath": "apps/model-policy/src/domain/model-snapshot.ts",
+      "sha256": "b745290f82f8d5ee0eb3b5bd88791d2d4a1aafcae012d4eb5b4da2b661891d06"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/policy-definition.test.ts",
+      "sourceBlob": "c9679db4088d93b8d989e518e3c6338e8aee0f6a",
+      "destinationPath": "apps/model-policy/src/domain/policy-definition.test.ts",
+      "sha256": "e0076f6dfaea38e9bd45ad601167537b41d60eb2d6ccea0ecda27338b126bff2"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/policy-definition.ts",
+      "sourceBlob": "637e117665acfe0611f7cddc6d70fade38e792f2",
+      "destinationPath": "apps/model-policy/src/domain/policy-definition.ts",
+      "sha256": "6f97376eba096460d3beae34e32804e6175ca5da67df1d100c059d8e75390351"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/policy-need.test.ts",
+      "sourceBlob": "b95fc575e43b0c3454742e3f7f93ecc7a2744107",
+      "destinationPath": "apps/model-policy/src/domain/policy-need.test.ts",
+      "sha256": "f773a122eee71307729bb1ba13cde3716c6c6a99ec9592b1fe07c5518475dafe"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/domain/policy-need.ts",
+      "sourceBlob": "6e7811791dc4d3ef3b20eb82d888771877ffce4c",
+      "destinationPath": "apps/model-policy/src/domain/policy-need.ts",
+      "sha256": "279091d93d2c11c48b68333590766a892733e41979cf4fbe2f9a4705d11a57e6"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/evaluation/error-mapping.ts",
+      "sourceBlob": "ac3714f5f1a83304731f200d16c83b876300bc5e",
+      "destinationPath": "apps/model-policy/src/evaluation/error-mapping.ts",
+      "sha256": "efd7dc52a7692386143c62b7628e0ca4023410371e3d1b74bf581a19864f9092"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/evaluation/policy-core-evaluator.test.ts",
+      "sourceBlob": "a13c52e1828b3ed2a655abddf030fd71c8eb4eb1",
+      "destinationPath": "apps/model-policy/src/evaluation/policy-core-evaluator.test.ts",
+      "sha256": "4850f2595e3f0aba8c19288d4edd22927725405330d2cbdae3d969b87f009d0b"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/evaluation/policy-core-evaluator.ts",
+      "sourceBlob": "e470d5ff46b53013bf478c8f868348b6a6b653c2",
+      "destinationPath": "apps/model-policy/src/evaluation/policy-core-evaluator.ts",
+      "sha256": "28b97587314c5cf608de494e55a03dec600d5538f81b4c0ac0b8635021df0da2"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/server/handler.test.ts",
+      "sourceBlob": "2cb55766ab08b990f224c4ed0e8d9ff0a1e56c25",
+      "destinationPath": "apps/model-policy/src/server/handler.test.ts",
+      "sha256": "c316834fabb2b9a1709d24989bc59116c91fbdffc352bcc44dce6fa295bcd569"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/server/handler.ts",
+      "sourceBlob": "e60d2cd558dad0bdfcee2e64137e8a451db35953",
+      "destinationPath": "apps/model-policy/src/server/handler.ts",
+      "sha256": "94c33687045c94c957f23987afff481e3fde18c1bada77279428d6541d54fc9d"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/shared/document.tsx",
+      "sourceBlob": "1a725f565aff739be503e7d2cefcbf1990a26e45",
+      "destinationPath": "apps/model-policy/src/shared/document.tsx",
+      "sha256": "201eb7fc3b15326d67c3eba18b677e807e1457061ccb12c3e0721df5a99b388e"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/ui/fixture.ts",
+      "sourceBlob": "f48956a0f405fd26fe9daf8ace2b33555f1aacdd",
+      "destinationPath": "apps/model-policy/src/ui/fixture.ts",
+      "sha256": "91887d8e6356dfccbdb2c1076f2a1b53bcbc22f782314495f4c0b6441f07f877"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/ui/model-policy-cockpit.test.tsx",
+      "sourceBlob": "01fbeaba41585d0cc481e5f4b1bc7644172a9175",
+      "destinationPath": "apps/model-policy/src/ui/model-policy-cockpit.test.tsx",
+      "sha256": "b9e5cda6beda7776660a70c11eb61e3f61bfce2995635e6034a13fa767186968"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/src/ui/model-policy-cockpit.tsx",
+      "sourceBlob": "cd412a6592190120b978a2e6459ee0f5db6371d6",
+      "destinationPath": "apps/model-policy/src/ui/model-policy-cockpit.tsx",
+      "sha256": "c9cdc3f6ce43ef48262e223d52850384f9819ee91020e36975a4c6299a3a1efb"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/tools/check-product-phases-coverage.test.ts",
+      "sourceBlob": "9d6aebbddae83410d780d5c69f64b3961d7be44d",
+      "destinationPath": "apps/model-policy/tools/check-product-phases-coverage.test.ts",
+      "sha256": "390c372e81d15be1ab99192e5b7f81185a50855010aed6f9d4a543ecff5e4d20"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/tools/check-product-phases.test.ts",
+      "sourceBlob": "5888130a2f167dc66cbbb82ccc52e031774786f7",
+      "destinationPath": "apps/model-policy/tools/check-product-phases.test.ts",
+      "sha256": "e884d383094e6a320f13738e903fd653ae6bbbab6124492624ba5c0d23f09eb1"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "apps/model-policy/tools/check-product-phases.ts",
+      "sourceBlob": "dd41c4f28c16cc5a3b948634080d2574a813bd6f",
+      "destinationPath": "apps/model-policy/tools/check-product-phases.ts",
+      "sha256": "de798262ed212e709b30a2a8be5f12a56e59174dd4e44606ae96432a124cac76"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "biome.json",
+      "sourceBlob": "0cd1b4ed58ccd5fbb7aa10d4d6d3c4f9fa070be9",
+      "destinationPath": "biome.json",
+      "sha256": "9573ef3f79428d33ad59be25d1121a998ee1f4e1666b420c37adbc8de6d66b29"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "bun.lock",
+      "sourceBlob": "860ac28224f61d318dd4f97fcc374d7484120f58",
+      "destinationPath": "bun.lock",
+      "sha256": "100ae374803823c9207bf56b931eb289acec92483e5e79227fdc5f91469e0fd9"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "bunfig.toml",
+      "sourceBlob": "187aad3cc3469a3aa9a58a0979a0e10f61fce2b9",
+      "destinationPath": "bunfig.toml",
+      "sha256": "5da4d7eb4d1e5c1c37d487034e56773e8e1f568daec675b114c5257942f48342"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/Cargo.toml",
+      "sourceBlob": "2b86ff2c16e31679232474426c503f35d94074e4",
+      "destinationPath": "crates/policy-core/Cargo.toml",
+      "sha256": "e78dc02e5c18e483bb48b7dd910344ff0ebf14ddc7462dfde8725969169eb0c8"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/examples/check_wasm_imports.rs",
+      "sourceBlob": "fcef2c7d02c4444c78cd7f0728310f436f7a89b1",
+      "destinationPath": "crates/policy-core/examples/check_wasm_imports.rs",
+      "sha256": "faa389f859362585fbae80b2266333d0ad622476b8936095b370afe9a69bc3a9"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/src/component.rs",
+      "sourceBlob": "4d8ef59257a3a583afd54339c06efd891ec18376",
+      "destinationPath": "crates/policy-core/src/component.rs",
+      "sha256": "220fe24b002c231100db923c9794674bbd868d94044c4cbcf61ff3361ca8cb6b"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/src/evaluator.rs",
+      "sourceBlob": "023f5868987bb1a11b6d721a8cb8e875578ec47a",
+      "destinationPath": "crates/policy-core/src/evaluator.rs",
+      "sha256": "cf12839780e9184940ff30f5b4926f48e3fe5fb1aa5abcb1da55b533f0f09f15"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/src/jcs.rs",
+      "sourceBlob": "f9bc364636ff1d6335e4319c1d4baf333c1312cf",
+      "destinationPath": "crates/policy-core/src/jcs.rs",
+      "sha256": "1257e6441ed2d533db9f0f66b9c90e697137d9fbad27f6841465f29e26012b8b"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/src/lib.rs",
+      "sourceBlob": "2c07e52e10d7a84d882c25c08ed12778c3f957f1",
+      "destinationPath": "crates/policy-core/src/lib.rs",
+      "sha256": "8354dab3cd929f836d7402c768bf0ff98d02ed2d762c996a25e4446ebe62fb29"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/src/normalize.rs",
+      "sourceBlob": "cc97381f55bcf49a6630437928082742146d9692",
+      "destinationPath": "crates/policy-core/src/normalize.rs",
+      "sha256": "31655c9cdcf6b93683081cd15da43f183bcaa8fa74a96305b111edb95e9b82a0"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/src/types.rs",
+      "sourceBlob": "9f44e5dbf3f96b5528b6aff79a1e2c7cc7a15485",
+      "destinationPath": "crates/policy-core/src/types.rs",
+      "sha256": "8a3a594fd06e4f5a48bb9b029dcb5cf858837072cb51859dd5481d9bbe6ef474"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "crates/policy-core/tests/conformance.rs",
+      "sourceBlob": "771195f8b4298bae1086b3322eb16f7cdfc09110",
+      "destinationPath": "crates/policy-core/tests/conformance.rs",
+      "sha256": "4839527ba349722d434e81b07001c91f7934c0cc2506979f3b5fec3aabe6e61a"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "deny.toml",
+      "sourceBlob": "49bc1a28a5742b6f1b531938603bb34510c54ba3",
+      "destinationPath": "deny.toml",
+      "sha256": "8fbd07c98a3d69cfdd87e7cd27ed249bb73fecb77fd35ae7846fa84f65fd7eaf"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy.md",
+      "sourceBlob": "92ef6f0d60069c07f9f2bc15b6e443cae9fcaa3d",
+      "destinationPath": "docs/apps/model-policy.md",
+      "sha256": "cb5cd6a67c2e8fc3ec88301080b798568b2be00aaf8d9cbe84466a827db12847"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/EVIDENCE.md",
+      "sourceBlob": "a4e6f6d19396db8318f1d8a3c6d24f41d0751f43",
+      "destinationPath": "docs/apps/model-policy/EVIDENCE.md",
+      "sha256": "5f6abd45601a6d06d545a45466cd75e439b735c7197150d089dfb477ee9c517e"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/METRICS.md",
+      "sourceBlob": "8a2e73c150ff0286a756bff4d717932e44ab41ce",
+      "destinationPath": "docs/apps/model-policy/METRICS.md",
+      "sha256": "9e85aef3176d5c7510b62f17ea3260a1bbe6dfd3bb42186fc0b94cd8b8b2a206"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/README.md",
+      "sourceBlob": "17173416fb29f3cccf2bce9ce4248a3e4aff8fef",
+      "destinationPath": "docs/apps/model-policy/README.md",
+      "sha256": "22ad17659c0518534cac80da96f165316bc8fe784dc1f0e6c255148a701a7a01"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/evidence-record.v1.schema.json",
+      "sourceBlob": "4b34174adb6ae16afee6e200c78b914d96c22c0f",
+      "destinationPath": "docs/apps/model-policy/evidence-record.v1.schema.json",
+      "sha256": "8441921e474eddff722bdc7bb08ef694f5f095a3b6a2b01236689a3da0e07a4f"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/operational-evidence.v1.schema.json",
+      "sourceBlob": "f1ba352034632fa5c45ccdf90cb26fad93ce1b7f",
+      "destinationPath": "docs/apps/model-policy/operational-evidence.v1.schema.json",
+      "sha256": "1f305138ef8fc76197fa25a30bf8c35e76edcc1403c1cbe83f9ca50626df2e7d"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases.v1.json",
+      "sourceBlob": "9a2c8fd9693f3d60e6f605b23abb2d29dd8bb8b0",
+      "destinationPath": "docs/apps/model-policy/phases.v1.json",
+      "sha256": "a151d0c35cc7b463fdc1a5147b186c8e67a2c25fa4384f47304a2a62755742d0"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases.v1.schema.json",
+      "sourceBlob": "ce13c711e54629bdbf1f9305c710272d145ce2e3",
+      "destinationPath": "docs/apps/model-policy/phases.v1.schema.json",
+      "sha256": "fc9d262a3abb4deb8503bb2136f5ddc020a35692c4eae6ce14ecc10ea0672d71"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/00-foundation.md",
+      "sourceBlob": "05e72d97544dcdec80aa17285524c96b81348068",
+      "destinationPath": "docs/apps/model-policy/phases/00-foundation.md",
+      "sha256": "48cf413a70cb75cbc7d83c51c144810d5476e0381c5be6bf18e403ea7f363845"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/01-deterministic-qualification.md",
+      "sourceBlob": "f96c316fdc0e897b25b047a33f985dc334cb972a",
+      "destinationPath": "docs/apps/model-policy/phases/01-deterministic-qualification.md",
+      "sha256": "424a760b7c1ec307cdc81451f6b966b6ebd889a850dd2ece6706f561dd239093"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/02-llm-assistance.md",
+      "sourceBlob": "8b3048a3be5ae7114fd2754c0507755994ed63ac",
+      "destinationPath": "docs/apps/model-policy/phases/02-llm-assistance.md",
+      "sha256": "01dbc7e3734a46102533c044837f96f3c8a9c096f7c8e1d67ba47c05fc65b7d3"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/03-organization-governance.md",
+      "sourceBlob": "f3291f0f3233015d3ff94e599bc9c84628492f7c",
+      "destinationPath": "docs/apps/model-policy/phases/03-organization-governance.md",
+      "sha256": "7dbd8b7e001e24369f171c073fba718daf0c9d679f4d4e84209c15aef6dcf615"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/04-continuous-monitoring.md",
+      "sourceBlob": "ba16d512d4941fb36290c60a74bf149707de1707",
+      "destinationPath": "docs/apps/model-policy/phases/04-continuous-monitoring.md",
+      "sha256": "bfd3b4c2b5a9249e6007474304467b9eb39e97190e56ebe196223e2ef2c74cdd"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/05-access-gateway.md",
+      "sourceBlob": "8c347c655f41905e14f1f07274c6f9839f8ca9b0",
+      "destinationPath": "docs/apps/model-policy/phases/05-access-gateway.md",
+      "sha256": "5dff00fc5901954b49e6c9dcb79768902a26bec8cabb2103f2f8125041f26ae9"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/06-activity-cockpit.md",
+      "sourceBlob": "bf6fd40f705dcb6edef1ca343789afae36935d6c",
+      "destinationPath": "docs/apps/model-policy/phases/06-activity-cockpit.md",
+      "sha256": "8093ffb1994a6931f3667a70928d93e384e6fba3b1b0b5eda027e6911814dfe3"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/phases/07-managed-service.md",
+      "sourceBlob": "da8338b6b64d3a0585af063a53b1f1e4282ad6be",
+      "destinationPath": "docs/apps/model-policy/phases/07-managed-service.md",
+      "sha256": "1fe53cb08b4d325ec8f83e66980973ce1a4afb71f18b85f610f3efcc01052b8c"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "docs/apps/model-policy/review-attestation.v1.schema.json",
+      "sourceBlob": "5e4b66c62e6d08f33d0b2646e521532e7de50235",
+      "destinationPath": "docs/apps/model-policy/review-attestation.v1.schema.json",
+      "sha256": "e6aded91f3e2a211d1a3613549388d645f51a09d6f427d3f70b8d8f9deb4a3db"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "package.json",
+      "sourceBlob": "8de15b84230e524392bcdb3e0a868c7f62417e78",
+      "destinationPath": "package.json",
+      "sha256": "7aa13d9537f6bc91649aa61b47240bce69d555b07575bba15b79ea47758d2981"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/package.json",
+      "sourceBlob": "7abb5018d74933672b2e2783c7090da8d9cb998b",
+      "destinationPath": "packages/policy-core-ref/package.json",
+      "sha256": "358dfdf247cdc9f9d5762bf762f5ce99e098c237833b49fa4d0db58cb3518aac"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/__tests__/conformance.test.ts",
+      "sourceBlob": "78c5adf6c88212526ec605a12a3a8df5f46d96d6",
+      "destinationPath": "packages/policy-core-ref/src/__tests__/conformance.test.ts",
+      "sha256": "2d038feb1fe9a1957d80208faab5b26b5ec0b1b9937bd0c5900288772ec64ae3"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/__tests__/operators.test.ts",
+      "sourceBlob": "209aa787c6a67cc71e59353c4956889a0a5fe079",
+      "destinationPath": "packages/policy-core-ref/src/__tests__/operators.test.ts",
+      "sha256": "3ea5fda8726da3c5f2d326a4953a1080d303e21f0720b7cc43925d81129224fe"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/__tests__/smoke.test.ts",
+      "sourceBlob": "f9a66a6095257790ee79b0eeb77b872401f0cd38",
+      "destinationPath": "packages/policy-core-ref/src/__tests__/smoke.test.ts",
+      "sha256": "7a54f3cb5e44af99e58509d4f3990c559239b600707667080c683e9125148bb0"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/evaluator.ts",
+      "sourceBlob": "17548e500acbcd62413934f960b14cf38c7d89e9",
+      "destinationPath": "packages/policy-core-ref/src/evaluator.ts",
+      "sha256": "9f2f73e74a160897aec36f3f16cfa10728e7820b8355087aa00421c91e05b4d6"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/index.ts",
+      "sourceBlob": "458f1b65a0748d93d8a11d9a528d7c8d8c988d63",
+      "destinationPath": "packages/policy-core-ref/src/index.ts",
+      "sha256": "dbbbec1cfbff9f711714e542709ebd389421cbc15d9009970e41cb72c4f6d59d"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/jcs.ts",
+      "sourceBlob": "f44a73d9167efc1a9e0be75cd27b4f053bb3c263",
+      "destinationPath": "packages/policy-core-ref/src/jcs.ts",
+      "sha256": "bd17ea2684f0f524b44a8e0a1c75f12257e9964bee62a7b7c3b226f7288cf735"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/normalize.ts",
+      "sourceBlob": "8951fa33c5381551784de23f901dce496976c30a",
+      "destinationPath": "packages/policy-core-ref/src/normalize.ts",
+      "sha256": "97a703fbbb17b8ae9cd60de4e2bc3bb3249ac432be4e72900e43f68d69b806d2"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/strict-parser.ts",
+      "sourceBlob": "6b21f2f425b8cdcc23b9d5d59df07b625c8a4436",
+      "destinationPath": "packages/policy-core-ref/src/strict-parser.ts",
+      "sha256": "3b31cabee1aa8baff21d725412f1fbc47b744b7108ccf6d26c3597c98e7ddcb1"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "packages/policy-core-ref/src/types.ts",
+      "sourceBlob": "a2ee05a60f92a23950bdc5040edd8352266f964a",
+      "destinationPath": "packages/policy-core-ref/src/types.ts",
+      "sha256": "05ac77780c74aeb728239bdf32542336145aeef77a22bcb2dd2643eb28909116"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "rust-toolchain.toml",
+      "sourceBlob": "255892208cde9f8cdd7dde6bbb830105c2e8599f",
+      "destinationPath": "rust-toolchain.toml",
+      "sha256": "eb8ed53423a7d9d3e3b3fc0367ee89426b4b9385114465919926b2829bfe7ecd"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "scripts/check-vendored-wit.ts",
+      "sourceBlob": "6d0335e64cde5dd7b69e31324c21598e356f1d48",
+      "destinationPath": "scripts/check-vendored-wit.ts",
+      "sha256": "ca20f0d5f1f6ad806e75b8dd03d75168cc9515f8e4b775e85d1faa97474cb6db"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "tools/quality/build-policy-core-wasm.ts",
+      "sourceBlob": "27e1beb17edc3bda1df0006de73c85aad7ed6ac4",
+      "destinationPath": "tools/quality/build-policy-core-wasm.ts",
+      "sha256": "717dcea4eb692aeeaa0e34a37c22c59865978ec657e6b8ffc7a690bacb141d76"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "tools/quality/check-bun-minimum.ts",
+      "sourceBlob": "e72c5012627ebd3729f89d4cb95b179e64086f61",
+      "destinationPath": "tools/quality/check-bun-minimum.ts",
+      "sha256": "dbbe6ae0092fd013a3020bc67755b91ae1dc4419d1788139b2d4d67ba05afacc"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "tools/quality/policy-core-raw-inputs.ts",
+      "sourceBlob": "481689c14f1ccf58881e37a41a17cb4c2b56739a",
+      "destinationPath": "tools/quality/policy-core-raw-inputs.ts",
+      "sha256": "94fc29b0b479be581c063a6c8a566f076319d1f4bd372c82291b7a71b7dcc389"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "tools/quality/policy-core-wasm-conformance.ts",
+      "sourceBlob": "a16f59b68b73b55f2261ae6179ea53d76ebc0cc1",
+      "destinationPath": "tools/quality/policy-core-wasm-conformance.ts",
+      "sha256": "82b4ee34369cbb7302325decdd7ca076c28d621dc3e09f4c7f4a6881a0af67d7"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "tsconfig.json",
+      "sourceBlob": "8a74f165d7d4414735f1f7b873ac3e5da56024b1",
+      "destinationPath": "tsconfig.json",
+      "sha256": "d3453fef4e71f11838d8b1dd35582243f267a972a871a62dcdc8ab0e68823258"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "vendored/wit/policy-core-v1/SEMANTICS.md",
+      "sourceBlob": "22d8ed0ee867c81f6bad107e963d0c4f7da62b05",
+      "destinationPath": "vendored/wit/policy-core-v1/SEMANTICS.md",
+      "sha256": "ce92a54fe1c94bcf6dfbe0356d57fbfa7b132fec4156d404b6ccb986a4220788"
+    },
+    {
+      "sourceRepository": "policy",
+      "sourceCommit": "2df660b946fb0b913187127c6f9f26683167e722",
+      "sourcePath": "vendored/wit/policy-core-v1/world.wit",
+      "sourceBlob": "571b99bd5d790b92a92a562c2cd0ad9939f66404",
+      "destinationPath": "vendored/wit/policy-core-v1/world.wit",
+      "sha256": "b53fe0fe2db158dc876f5bb88fccd2da362dd09abbb86656852b10e3e5e560a0"
+    }
+  ],
+  "excluded": [
+    {
+      "source": "policy",
+      "path": ".github/workflows/ci.yml",
+      "reason": "preserve current presentation and avoid activating historical agent/provider configuration"
+    },
+    {
+      "source": "policy",
+      "path": ".github/workflows/context-hygiene.yml",
+      "reason": "preserve current presentation and avoid activating historical agent/provider configuration"
+    },
+    {
+      "source": "policy",
+      "path": "README.md",
+      "reason": "preserve current presentation and avoid activating historical agent/provider configuration"
+    },
+    {
+      "source": "policy",
+      "path": "project.v1.yaml",
+      "reason": "preserve current presentation and avoid activating historical agent/provider configuration"
+    }
+  ],
+  "status": "Source imported and locally tested; no publication or deployment performed.",
+  "adaptations": [
+    {
+      "path": ".gitignore",
+      "sourceSha256": "19b23de57a80020117177f6f3a34b5b5ce98c2623a8e8e6e211453bbf6458bfa",
+      "currentSha256": "8a2de8b3e4d25c532fd89bd03eb95e9f1c09e8876abf2a54abfa7f74aa04db9c",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    },
+    {
+      "path": "REUSE.toml",
+      "sourceSha256": "ae3fd895cf66ea9154118c3059936644005b45420736806f9fee193df2030eca",
+      "currentSha256": "6ce86dea9fa28b9b3debe36d0d54df5d48f3cd0dd1233f3717b88a0c208b05f4",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    },
+    {
+      "path": "apps/model-policy/package.json",
+      "sourceSha256": "750f5b53468d177584e6d3b0f26ee72e856b4a2a8c8204bcea2dffa64f45f158",
+      "currentSha256": "128480668ea642b4e2b363a922ff393909e480ae930a6a51c367100928dc90b4",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    },
+    {
+      "path": "bun.lock",
+      "sourceSha256": "100ae374803823c9207bf56b931eb289acec92483e5e79227fdc5f91469e0fd9",
+      "currentSha256": "4ab32f538eb44503607e88bf1ec5b2dae1aa1625bb3aa83d465394a18bb58516",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    },
+    {
+      "path": "package.json",
+      "sourceSha256": "7aa13d9537f6bc91649aa61b47240bce69d555b07575bba15b79ea47758d2981",
+      "currentSha256": "9ae4f38efdee59336c55682169b61d33cf6faea01a0cfb667b2b455118b3f6bd",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    },
+    {
+      "path": "packages/policy-core-ref/package.json",
+      "sourceSha256": "358dfdf247cdc9f9d5762bf762f5ce99e098c237833b49fa4d0db58cb3518aac",
+      "currentSha256": "45124c92d2fb6565c7b9150fbeb275f3022c294e62cf29dca8114b807e7cbcb8",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    },
+    {
+      "path": "tools/quality/policy-core-wasm-conformance.ts",
+      "sourceSha256": "82b4ee34369cbb7302325decdd7ca076c28d621dc3e09f4c7f4a6881a0af67d7",
+      "currentSha256": "24fd7d992c7ae875f1155eb91a7cb65bb9ebf722c21765cde881673d9024b53f",
+      "change": "Local composition, build/test adaptation or current presentation; original source remains preserved."
+    }
+  ]
+}

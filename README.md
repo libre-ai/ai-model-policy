@@ -13,6 +13,6 @@ Understand whether a proposed use of an AI model fits your organization's rules,
 - Identify conditions that must be met before that use could be accepted.
 - See which model facts are missing instead of treating uncertainty as approval.
 
-**Today:** this repository documents the proposed product; no usable application is available here yet.
+**Today:** source code and tests are present; local integration is underway. See the [development guide](docs/DEVELOPMENT.md) for setup and verification status.
 
 [Catalogue](https://github.com/libre-ai/.github/blob/main/profile/README.md) · [Contribute](https://github.com/libre-ai/.github/blob/main/CONTRIBUTING.md) · [Français](README.fr.md) · [CC BY 4.0 license](LICENSES/CC-BY-4.0.txt)
