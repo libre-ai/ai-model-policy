@@ -26,6 +26,8 @@ import { fileURLToPath } from "node:url";
 import { transpileBytes } from "@bytecodealliance/jco-transpile";
 import { componentNew, componentWit } from "@bytecodealliance/jco-transpile/wasm-tools";
 
+import { assertNoMachinePaths, machinePathContext, REMAP_TARGETS } from "./machine-paths.ts";
+
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "../..");
 const outputDirectory = resolve(repositoryRoot, "target/policy-core-wasm");
@@ -90,6 +92,10 @@ function sha256(value: Uint8Array): string {
   return createHash("sha256").update(value).digest("hex");
 }
 
+// Owner decision Y40: dependency panic locations carry absolute CARGO_HOME paths,
+// so the module shipped the builder's user name and its fingerprint followed the
+// machine. The recipe remaps them itself (external Rust flags stay refused above).
+const pathContext = machinePathContext(repositoryRoot);
 run("cargo", [
   "build",
   "--locked",
@@ -143,6 +149,15 @@ if (WebAssembly.Module.imports(transpiledCore).length !== 0) {
   throw new Error("transpiled core module has imports");
 }
 
+// The proof is the bytes, not the exit code of cargo: the cargo core module and
+// every generated file (the shipped core module and its glue) must be free of
+// machine paths.
+const machinePathScan = await assertNoMachinePaths(
+  pathContext,
+  [coreModulePath, ...Object.keys(transpiled.files).sort().map(safeOutputPath)],
+  (path) => relative(repositoryRoot, path),
+);
+
 const generated = Object.fromEntries(
   await Promise.all(
     Object.keys(transpiled.files)
@@ -157,6 +172,13 @@ const manifest = {
   component: { bytes: componentBytes.length, sha256: sha256(componentBytes) },
   coreModule: { bytes: coreBytes.length, sha256: sha256(coreBytes) },
   generated,
+  // Remap targets only: the remapped prefixes are machine paths, never recorded.
+  pathRemap: {
+    targets: Object.values(REMAP_TARGETS),
+    scannedArtifacts: machinePathScan.artifacts,
+    scannedBytes: machinePathScan.bytes,
+    needleHits: 0,
+  },
   schemaVersion: "libre-ai.policy-core-wasm-build.v1",
   transpiler: TRANSPILER,
 };
