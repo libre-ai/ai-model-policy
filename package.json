@@ -41,10 +41,11 @@
     "check:app": "bun run check:bun:runtime && bun test --cwd packages/policy-core-ref && bun test --cwd apps/model-policy",
     "check:secret-scan": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-secret-scan.ts",
     "check:personal-data": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-personal-data-boundary.ts",
+    "check:dependency-policy": "bun run check:bun:runtime && bun test tools/quality/check-dependency-policy.test.ts && bun tools/quality/check-dependency-policy.ts",
     "lint": "bun run check:bun:runtime && biome ci .",
     "pretest": "bun run check:bun",
     "test": "cargo test --locked",
-    "check": "bun run check:bun && bun run check:toolchain && bun run check:wit && bun run check:app && bun run check:secret-scan && bun run check:personal-data && bun run lint"
+    "check": "bun run check:bun && bun run check:toolchain && bun run check:wit && bun run check:app && bun run check:dependency-policy && bun run check:secret-scan && bun run check:personal-data && bun run lint"
   },
   "workspaces": [
     "apps/model-policy",
