@@ -26,7 +26,13 @@ import { fileURLToPath } from "node:url";
 import { transpileBytes } from "@bytecodealliance/jco-transpile";
 import { componentNew, componentWit } from "@bytecodealliance/jco-transpile/wasm-tools";
 
-import { assertNoMachinePaths, machinePathContext, REMAP_TARGETS } from "./machine-paths.ts";
+import {
+  assertNoMachinePaths,
+  machinePathContext,
+  machinePathRemaps,
+  REMAP_TARGETS,
+  remapConfigArgument,
+} from "./machine-paths.ts";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "../..");
@@ -94,7 +100,8 @@ function sha256(value: Uint8Array): string {
 
 // Owner decision Y40: dependency panic locations carry absolute CARGO_HOME paths,
 // so the module shipped the builder's user name and its fingerprint followed the
-// machine. The recipe remaps them itself (external Rust flags stay refused above).
+// machine. The recipe remaps them itself (external Rust flags stay refused above);
+// `--config` arrays are appended to the `+simd128` rustflags of .cargo/config.toml.
 const pathContext = machinePathContext(repositoryRoot);
 run("cargo", [
   "build",
@@ -104,6 +111,8 @@ run("cargo", [
   "--release",
   "--target",
   "wasm32-unknown-unknown",
+  "--config",
+  remapConfigArgument("target.wasm32-unknown-unknown.rustflags", machinePathRemaps(pathContext)),
 ]);
 
 const coreBytes = new Uint8Array(await readFile(coreModulePath));
