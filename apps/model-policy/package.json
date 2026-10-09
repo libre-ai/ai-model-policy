@@ -14,7 +14,7 @@
     "pretest": "bun run check:bun",
     "pretest:product-phases:coverage": "bun run check:bun",
     "test": "bun test",
-    "test:product-phases:coverage": "bun test --coverage tools/check-product-phases.test.ts"
+    "test:product-phases:coverage": "bun run check:bun && bun test --coverage tools/check-product-phases.test.ts"
   },
   "dependencies": {
     "@libre-ai/web-platform": "file:../../../application-development-toolkit/packages/web-platform",
