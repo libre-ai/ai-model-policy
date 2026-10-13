@@ -1,3 +1,7 @@
+[install]
+minimumReleaseAge = 259200
+minimumReleaseAgeExcludes = []
+
 [test]
 coverageSkipTestFiles = true
 coveragePathIgnorePatterns = ["../../tools/quality/public-source-scanner.ts"]
