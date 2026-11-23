@@ -52,16 +52,23 @@ if (!Array.isArray(golden.cases) || golden.cases.length === 0) {
 const goldenCases: GoldenCase[] = golden.cases;
 
 // Live integration: needs the built artifact (node tools/quality/build-policy-core-wasm.ts).
-// Skipped when absent so the toolchain-free bun-quality job stays green; the skip is
-// printed, never silent. The CI gate for the WASM path is
-// tools/quality/policy-core-wasm-conformance.ts, which replays every golden case.
+// The root `check` script builds it (`check:wasm-build`) before this suite runs, so CI
+// replays every golden case against the WASM built from the current code. Under CI
+// (`CI=true`, set by every GitHub Actions runner and inherited by the composition) an
+// absent artifact fails this suite: a skip there would hide a reordered or broken build.
+// Outside CI the suite may skip, and the skip and its volume are printed, never silent.
 const generatedDirectory = resolve(
   import.meta.dir,
   "../../../../target/policy-core-wasm/generated",
 );
 const artifactBuilt = existsSync(resolve(generatedDirectory, "policy-core.js"));
+const artifactRequired = process.env.CI === "true";
 if (artifactBuilt) {
   console.log(`policy-core WASM evaluator (live): ${goldenCases.length} golden case(s) loaded`);
+} else if (artifactRequired) {
+  throw new Error(
+    `policy-core WASM evaluator (live): artifact absent under CI=true, ${goldenCases.length} golden case(s) would not be replayed; run bun run check:wasm-build first`,
+  );
 } else {
   console.warn(
     `policy-core WASM evaluator (live): SKIPPED, ${goldenCases.length} golden case(s) not replayed — artifact absent; build it with node tools/quality/build-policy-core-wasm.ts`,

@@ -17,4 +17,4 @@ Les résultats observés sont dans [verification-status.json](verification-statu
 
 Rust1.97.0 et wasm32-unknown-unknown sont utilisés par les moteurs. Préchargez les dépendances avec `cargo fetch --locked`, puis lancez la vérification native avec `cargo test --locked --offline`. Les tests WASM doivent être distingués des tests natifs.
 
-Après installation, le moteur navigateur se construit avec `node tools/quality/build-policy-core-wasm.ts`, puis se vérifie avec `bun tools/quality/policy-core-wasm-conformance.ts`. Ce contrôle est distinct de la suite Rust native.
+Après installation, le moteur navigateur se construit avec `node tools/quality/build-policy-core-wasm.ts`, puis se vérifie avec `bun tools/quality/policy-core-wasm-conformance.ts`. Ce contrôle est distinct de la suite Rust native. `bun run check` construit cet artefact (`check:wasm-build`) avant les tests de l’application, qui rejouent alors tous les cas dorés contre lui ; sous `CI=true`, l’absence de l’artefact fait échouer ces tests au lieu de les sauter.

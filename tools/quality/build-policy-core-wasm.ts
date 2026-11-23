@@ -33,6 +33,7 @@ import {
   REMAP_TARGETS,
   remapConfigArgument,
 } from "./machine-paths.ts";
+import { rustBuildEnvironment } from "./rust-build-environment.ts";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = resolve(scriptDirectory, "../..");
@@ -45,37 +46,14 @@ const coreModulePath = resolve(
 const EXPECTED_EXPORT = "libre-ai:policy-core/api@1.0.0";
 const TRANSPILER = "@bytecodealliance/jco-transpile@0.4.2";
 
-// A capability-free, reproducible Rust build must not be steered by external
-// compiler controls; the same guard notebook qualification applies.
-const forbiddenRustBuildEnvironment = Object.keys(process.env).filter(
-  (name) =>
-    Boolean(process.env[name]) &&
-    ([
-      "CARGO_BUILD_RUSTC",
-      "CARGO_BUILD_RUSTC_WRAPPER",
-      "CARGO_BUILD_RUSTFLAGS",
-      "CARGO_ENCODED_RUSTFLAGS",
-      "CARGO_INCREMENTAL",
-      "CARGO_TARGET_DIR",
-      "RUSTC",
-      "RUSTC_BOOTSTRAP",
-      "RUSTC_WRAPPER",
-      "RUSTC_WORKSPACE_WRAPPER",
-      "RUSTFLAGS",
-    ].includes(name) ||
-      name.startsWith("CARGO_PROFILE_RELEASE_") ||
-      name.startsWith("CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_")),
-);
-if (forbiddenRustBuildEnvironment.length > 0) {
-  throw new Error(
-    `policy-core WASM build forbids external Rust build controls: ${forbiddenRustBuildEnvironment.join(", ")}`,
-  );
-}
+// Throws before any build step when an external Rust build control is set.
+const buildEnvironment = rustBuildEnvironment(process.env);
 
 function run(command: string, arguments_: string[]): void {
   const result = spawnSync(command, arguments_, {
     cwd: repositoryRoot,
     encoding: "utf8",
+    env: buildEnvironment,
     stdio: "pipe",
   });
   if (result.status !== 0) {
