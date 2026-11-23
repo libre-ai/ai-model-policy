@@ -98,8 +98,11 @@ fn duplicate_member_in_a_nested_object_is_input_invalid() {
 fn policy_core_v3_duplicate_member_carrier_is_input_invalid() {
     // Provenance: libre-ai/schemas-and-contracts, pull request #44 head
     // 5d4c1513f64d7d5cd084c288fd41ac0be6ccd696,
-    // contracts/fixtures/policy-core-v3/raw-inputs/carrier-duplicate-member.bin
-    // (Apache-2.0). Its manifest records the digest and length asserted below.
+    // contracts/fixtures/policy-core-v3/raw-inputs/carrier-duplicate-member.bin,
+    // distributed there under Apache-2.0 by the same holder, "Libre AI
+    // contributors". In this repository its effective license is EUPL-1.2, from
+    // the `**` annotation of REUSE.toml. Its manifest records the digest and
+    // length asserted below.
     let path = concat!(
         env!("CARGO_MANIFEST_DIR"),
         "/tests/fixtures/carrier-duplicate-member.bin"
@@ -133,6 +136,29 @@ fn policy_core_v3_duplicate_member_carrier_is_input_invalid() {
 fn nesting_seventy_deep_is_input_invalid() {
     let case = golden_case();
     let policy = insert_after(&case.policy, "{", &format!(r#""x":{},"#, nested_arrays(70)));
+    assert_eq!(
+        evaluate_policy(&case, &policy),
+        Err(ErrorCode::InputInvalid)
+    );
+}
+
+// The depth bound seen through `evaluate`. The policy root has depth 0 and the
+// value of its member "x" depth 1, so `levels` nested arrays put the innermost
+// array at depth `levels`. No schema-valid place admits such nesting: these two
+// tests rely on the unknown member "x" being admitted (issue #17). Once the three
+// schemas are validated, the depth-64 control becomes input-invalid for a schema
+// reason and must move to wherever the bound stays observable.
+#[test]
+fn value_at_depth_64_in_the_policy_is_admitted() {
+    let case = golden_case();
+    let policy = insert_after(&case.policy, "{", &format!(r#""x":{},"#, nested_arrays(64)));
+    assert_eq!(evaluate_policy(&case, &policy), Ok(()));
+}
+
+#[test]
+fn value_at_depth_65_in_the_policy_is_input_invalid() {
+    let case = golden_case();
+    let policy = insert_after(&case.policy, "{", &format!(r#""x":{},"#, nested_arrays(65)));
     assert_eq!(
         evaluate_policy(&case, &policy),
         Err(ErrorCode::InputInvalid)
