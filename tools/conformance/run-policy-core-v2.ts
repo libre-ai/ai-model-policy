@@ -61,6 +61,8 @@ export function verdict(output: string, exitCode: number): Verdict {
   const reasons: string[] = [];
   const { discovered, total, pass, fail, unavailable, blocked } = counters;
   if (discovered === 0) reasons.push("no vector discovered");
+  // Every vector unavailable means the adapter served none: a green would rest on zero judgements.
+  else if (pass === 0 && fail === 0 && blocked === 0) reasons.push("no vector judged");
   if (total !== discovered || pass + fail + unavailable + blocked !== discovered)
     reasons.push("counters do not add up to the discovered volume");
   if (fail > 0) reasons.push(`${fail} vector(s) fail`);

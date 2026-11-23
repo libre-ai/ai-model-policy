@@ -123,6 +123,8 @@ describe("conformance job verdict", () => {
       ["conformance-runner: --impl is required\n", 3, /no summary line/],
       [line(20, 19, 0, 0, 0), 0, /do not add up/],
       [line(20, 20, 0, 0, 0, 19), 0, /do not add up/],
+      // Every vector unavailable: the adapter served none, so nothing was judged.
+      [line(20, 0, 0, 20, 0), 2, /no vector judged/],
       [line(20, 20, 0, 0, 0), 1, /disagrees/],
       [line(20, 19, 1, 0, 0), 0, /disagrees/],
     ];
