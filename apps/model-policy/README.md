@@ -142,9 +142,11 @@ cargo run --locked -p policy-core --example check_wasm_imports -- \
 bun tools/quality/policy-core-wasm-conformance.ts
 ```
 
-CI (`rust-quality`) builds the component, runs `check_wasm_imports`, and verifies a
-reproducible byte-identical rebuild. The live jco conformance is the pre-merge
-qualification check, mirroring notebook-core's out-of-CI qualification harness.
+In CI, the root `bun run check` builds the component (`check:wasm-build`) before the
+application tests, so `src/evaluation/policy-core-evaluator.test.ts` replays every golden
+vector through the live evaluator; under `CI=true` that suite fails, never skips, when the
+artifact is absent. The composition's separate WASM gate then rebuilds the component and
+runs `tools/quality/policy-core-wasm-conformance.ts`.
 
 ### Deliberately deferred
 
