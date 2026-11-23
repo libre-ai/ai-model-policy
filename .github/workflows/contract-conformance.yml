@@ -5,8 +5,8 @@
 # reference evaluator (packages/policy-core-ref), through the authority's own conformance runner.
 # Conformance is proved here, against the authority at one pinned commit, never a branch
 # (libre-ai/schemas-and-contracts AGENTS.md). Moving CONTRACTS_REVISION is a reviewed change of
-# this file. The job is red on a `fail` or `blocked` vector; `unavailable` is counted and printed
-# apart (tools/conformance/run-policy-core-v2.ts).
+# this file. The job is red on a `fail` or `blocked` vector, and when no vector was judged;
+# `unavailable` is counted and printed apart (tools/conformance/run-policy-core-v2.ts).
 name: Contract conformance
 'on':
   push:

@@ -7,9 +7,10 @@
 // script reads nothing else of it than the runner and `contracts/vectors`.
 //
 // It prints every runner line, then the four counters, then its verdict. The job is red when a
-// vector is `fail` or `blocked`, when nothing was discovered, when the counters do not add up to
-// the discovered volume, when the summary line is missing or malformed, or when the runner's exit
-// code disagrees with its own counters. `unavailable` is counted and printed apart, and does not
+// vector is `fail` or `blocked`, when nothing was discovered, when every discovered vector is
+// `unavailable` (nothing was judged), when the counters do not add up to the discovered volume,
+// when the summary line is missing or malformed, or when the runner's exit code disagrees with its
+// own counters. `unavailable` next to judged vectors is counted and printed apart, and does not
 // turn the job red.
 
 import { resolve } from "node:path";
