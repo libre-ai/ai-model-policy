@@ -20,6 +20,12 @@ fn test_conformance_golden_vectors() {
         .get("cases")
         .and_then(|c| c.as_array())
         .expect("No cases in golden.json");
+    // An empty set would run the loop zero times and pass: refuse it.
+    assert!(
+        !cases.is_empty(),
+        "golden.json declares no conformance case: {}",
+        golden_path
+    );
 
     println!("Testing {} conformance vectors...", cases.len());
     let mut passed = 0;
@@ -48,16 +54,30 @@ fn test_conformance_golden_vectors() {
         let result = evaluate(&policy_bytes, &snapshot_bytes, &need_bytes, evaluated_at);
 
         // Check result against expected
-        if let Some(_expected_error) = test_case.get("expectedError") {
-            // Error case
+        if let Some(expected_error) = test_case.get("expectedError") {
+            // Error case: the refusal must carry the expected variant, not just any error.
+            let expected_variant = expected_error
+                .get("variant")
+                .and_then(|v| v.as_str())
+                .expect("expectedError without a string variant in golden.json");
             match result {
                 Ok(_) => {
                     println!("✗ Case {}: {} - Expected error but got success", i, case_id);
                     failed += 1;
                 }
-                Err(_) => {
+                Err(code) if code.as_str() == expected_variant => {
                     println!("✓ Case {}: {} (error case passed)", i, case_id);
                     passed += 1;
+                }
+                Err(code) => {
+                    println!(
+                        "✗ Case {}: {} - Expected error {} but got {}",
+                        i,
+                        case_id,
+                        expected_variant,
+                        code.as_str()
+                    );
+                    failed += 1;
                 }
             }
         } else if let Some(_expected_evaluation) = test_case.get("expectedEvaluation") {
@@ -111,5 +131,10 @@ fn test_conformance_golden_vectors() {
     assert_eq!(
         failed, 0,
         "Some conformance tests failed. See output above for details."
+    );
+    assert_eq!(
+        passed,
+        cases.len(),
+        "every golden case must be accounted for as passed"
     );
 }

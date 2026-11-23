@@ -17,6 +17,12 @@ const vendored = readdirSync(VENDORED)
   .filter((name) => name.endsWith(".wit"))
   .sort();
 const issues: string[] = [];
+// An authority directory with no .wit file would compare nothing and report success
+// (or, under --write, silently keep a stale vendored copy).
+if (source.length === 0) {
+  console.error(`${AUTHORITY}: no .wit file in the authority pin`);
+  process.exit(1);
+}
 
 for (const name of source) {
   const authorityBytes = await Bun.file(`${AUTHORITY}/${name}`).bytes();
