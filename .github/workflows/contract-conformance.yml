@@ -16,7 +16,7 @@ name: Contract conformance
 permissions:
   contents: read
 env:
-  CONTRACTS_REVISION: 113a986b431e23de71af61006b29278b039491d6
+  CONTRACTS_REVISION: 11c8412279e10656b9038ad17185d0d5740583d6
 jobs:
   policy-core-v2:
     name: policy-core-v2 vectors
