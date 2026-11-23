@@ -114,7 +114,7 @@ describe("conformance job verdict", () => {
     expect(result.counters?.unavailable).toBe(2);
   });
 
-  test("a fail, a blocked, nothing discovered or a refused run is red", () => {
+  test("a fail, a blocked, nothing discovered, nothing judged or a refused run is red", () => {
     const red: [string, number, RegExp][] = [
       [line(20, 19, 1, 0, 0), 1, /fail/],
       [line(20, 19, 0, 0, 1), 2, /blocked/],
