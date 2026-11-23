@@ -1,0 +1,56 @@
+# SPDX-FileCopyrightText: 2026 Libre AI contributors
+# SPDX-License-Identifier: EUPL-1.2
+#
+# Replays the policy-core-v2 vectors of the contracts authority against this repository's
+# reference evaluator (packages/policy-core-ref), through the authority's own conformance runner.
+# Conformance is proved here, against the authority at one pinned commit, never a branch
+# (libre-ai/schemas-and-contracts AGENTS.md). Moving CONTRACTS_REVISION is a reviewed change of
+# this file. The job is red on a `fail` or `blocked` vector; `unavailable` is counted and printed
+# apart (tools/conformance/run-policy-core-v2.ts).
+name: Contract conformance
+'on':
+  push:
+    branches: [main, migrate/recover-code]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  CONTRACTS_REVISION: 113a986b431e23de71af61006b29278b039491d6
+jobs:
+  policy-core-v2:
+    name: policy-core-v2 vectors
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          path: source
+          persist-credentials: false
+      - name: Checkout the contracts authority at the pinned commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: libre-ai/schemas-and-contracts
+          ref: ${{ env.CONTRACTS_REVISION }}
+          path: contracts
+          persist-credentials: false
+      - name: Checkout immutable current governance tooling
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: libre-ai/project-governance
+          ref: a00daec8d10419f266a9611f589c606858ca86b3
+          path: tooling
+          persist-credentials: false
+      - name: Install verified toolchains
+        run: |
+          bash tooling/.github/composition/install-toolchains.sh \
+            "$GITHUB_WORKSPACE/tooling/toolchains/bun.json" \
+            "$GITHUB_WORKSPACE/tooling/toolchains/notebook-qualification.json" \
+            "$GITHUB_WORKSPACE/tooling/toolchains/cargo-deny.json" \
+            "$GITHUB_WORKSPACE/tooling/toolchains/osv-scanner.json"
+      - name: Confirm the authority revision
+        run: |
+          mounted="$(git -C contracts rev-parse HEAD)"
+          echo "contracts authority: mounted=$mounted expected=$CONTRACTS_REVISION"
+          test "$mounted" = "$CONTRACTS_REVISION"
+      - name: Replay the policy-core-v2 vectors
+        run: bun source/tools/conformance/run-policy-core-v2.ts contracts
