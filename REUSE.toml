@@ -40,6 +40,7 @@ SPDX-License-Identifier = "CC-BY-4.0"
 [[annotations]]
 path = [
   "apps/web/assets/libre-ia/**",
+  "crates/policy-core/tests/fixtures/**",
   "crates/sync/tests/fixtures/**",
   "examples/need-*.yaml",
   "schemas/**",
