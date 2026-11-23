@@ -1,5 +1,6 @@
 // policy-core-v2 reference evaluator
-// Byte-identical to normative SEMANTICS.md, verified against 144 golden vectors.
+// Byte-identical to normative SEMANTICS.md, verified against every policy-core-v2
+// golden and operator vector of the pinned contracts authority (see __tests__).
 
 export { type EvaluateResult, evaluate } from "./evaluator";
 export { digest, jcs } from "./jcs";

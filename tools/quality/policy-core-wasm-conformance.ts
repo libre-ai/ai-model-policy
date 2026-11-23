@@ -49,6 +49,13 @@ function deepEqual(a: unknown, b: unknown): boolean {
 const golden = (await Bun.file(goldenPath).json()) as {
   cases: GoldenCase[];
 };
+// An empty set would report "0/0 byte-exact" and exit 0: refuse it.
+if (!Array.isArray(golden.cases) || golden.cases.length === 0) {
+  process.stderr.write(
+    `policy-core WASM conformance: golden.json declares no case (${goldenPath})\n`,
+  );
+  process.exit(1);
+}
 const evaluator = await createPolicyCoreEvaluator(generatedDirectory);
 const encoder = new TextEncoder();
 const decoder = new TextDecoder();

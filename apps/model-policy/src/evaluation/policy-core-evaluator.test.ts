@@ -1,4 +1,4 @@
-import { describe, expect, test } from "bun:test";
+import { beforeAll, describe, expect, test } from "bun:test";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -29,30 +29,44 @@ describe("mapContractError", () => {
   });
 });
 
+interface GoldenCase {
+  id: string;
+  policy: unknown;
+  snapshot: unknown;
+  need: unknown;
+  evaluatedAt: string;
+  expectedEvaluation?: Record<string, unknown>;
+  expectedError?: { variant: string };
+}
+
+// The golden set is read unconditionally, before tests are registered: a missing
+// or unreadable file fails this suite even when the WASM artifact is absent.
+const goldenPath = resolve(
+  import.meta.dir,
+  "../../../../node_modules/@libre-ai/contracts-authority/contracts/fixtures/policy-core-v2/golden.json",
+);
+const golden = (await Bun.file(goldenPath).json()) as { cases: GoldenCase[] };
+if (!Array.isArray(golden.cases) || golden.cases.length === 0) {
+  throw new Error(`golden.json declares no conformance case: ${goldenPath}`);
+}
+const goldenCases: GoldenCase[] = golden.cases;
+
 // Live integration: needs the built artifact (node tools/quality/build-policy-core-wasm.ts).
-// Skipped when absent so the toolchain-free bun-quality job stays green; the
-// exhaustive 20/20 gate lives in tools/quality/policy-core-wasm-conformance.ts.
+// Skipped when absent so the toolchain-free bun-quality job stays green; the skip is
+// printed, never silent. The CI gate for the WASM path is
+// tools/quality/policy-core-wasm-conformance.ts, which replays every golden case.
 const generatedDirectory = resolve(
   import.meta.dir,
   "../../../../target/policy-core-wasm/generated",
 );
 const artifactBuilt = existsSync(resolve(generatedDirectory, "policy-core.js"));
-
-const golden = artifactBuilt
-  ? ((await Bun.file(
-      resolve(import.meta.dir, "../../../../node_modules/@libre-ai/contracts-authority/contracts/fixtures/policy-core-v2/golden.json"),
-    ).json()) as {
-      cases: Array<{
-        id: string;
-        policy: unknown;
-        snapshot: unknown;
-        need: unknown;
-        evaluatedAt: string;
-        expectedEvaluation?: Record<string, unknown>;
-        expectedError?: { variant: string };
-      }>;
-    })
-  : { cases: [] };
+if (artifactBuilt) {
+  console.log(`policy-core WASM evaluator (live): ${goldenCases.length} golden case(s) loaded`);
+} else {
+  console.warn(
+    `policy-core WASM evaluator (live): SKIPPED, ${goldenCases.length} golden case(s) not replayed — artifact absent; build it with node tools/quality/build-policy-core-wasm.ts`,
+  );
+}
 
 const encoder = new TextEncoder();
 function bytes(value: unknown): Uint8Array {
@@ -60,35 +74,38 @@ function bytes(value: unknown): Uint8Array {
 }
 
 describe.skipIf(!artifactBuilt)("policy-core WASM evaluator (live)", () => {
-  test("evaluates a success vector to byte-exact policy-evaluation bytes", async () => {
-    const evaluator = await createPolicyCoreEvaluator(generatedDirectory);
-    const vector = golden.cases.find((c) => c.expectedEvaluation);
-    const expectedEvaluation = vector?.expectedEvaluation;
-    if (!vector || !expectedEvaluation) throw new Error("no success vector in golden.json");
-    const result = evaluator.evaluate(
-      bytes(vector.policy),
-      bytes(vector.snapshot),
-      bytes(vector.need),
-      vector.evaluatedAt,
-    );
-    expect(result.ok).toBe(true);
-    if (!result.ok) return;
-    expect(JSON.parse(new TextDecoder().decode(result.value))).toEqual(expectedEvaluation);
+  let evaluator: Awaited<ReturnType<typeof createPolicyCoreEvaluator>>;
+
+  beforeAll(async () => {
+    evaluator = await createPolicyCoreEvaluator(generatedDirectory);
   });
 
-  test("maps a contract error vector to a typed refusal", async () => {
-    const evaluator = await createPolicyCoreEvaluator(generatedDirectory);
-    const vector = golden.cases.find((c) => c.expectedError);
-    const expectedError = vector?.expectedError;
-    if (!vector || !expectedError) throw new Error("no error vector in golden.json");
-    const result = evaluator.evaluate(
-      bytes(vector.policy),
-      bytes(vector.snapshot),
-      bytes(vector.need),
-      vector.evaluatedAt,
-    );
-    expect(result.ok).toBe(false);
-    if (result.ok) return;
-    expect(result.error.code as string).toBe(expectedError.variant);
+  test("golden set holds both a success and an error vector", () => {
+    expect(goldenCases.some((c) => c.expectedEvaluation)).toBe(true);
+    expect(goldenCases.some((c) => c.expectedError)).toBe(true);
   });
+
+  for (const [index, vector] of goldenCases.entries()) {
+    test(`golden vector ${index} (${vector.id})`, () => {
+      const result = evaluator.evaluate(
+        bytes(vector.policy),
+        bytes(vector.snapshot),
+        bytes(vector.need),
+        vector.evaluatedAt,
+      );
+      if (vector.expectedError) {
+        // A contract error maps to a typed refusal carrying the WIT variant.
+        expect(result.ok).toBe(false);
+        if (result.ok) return;
+        expect(result.error.code as string).toBe(vector.expectedError.variant);
+        return;
+      }
+      if (!vector.expectedEvaluation) {
+        throw new Error(`golden case ${vector.id} has neither expectedEvaluation nor expectedError`);
+      }
+      expect(result.ok).toBe(true);
+      if (!result.ok) return;
+      expect(JSON.parse(new TextDecoder().decode(result.value))).toEqual(vector.expectedEvaluation);
+    });
+  }
 });

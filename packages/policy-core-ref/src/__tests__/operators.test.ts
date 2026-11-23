@@ -28,12 +28,28 @@ interface OperatorsFile {
   }>;
 }
 
-// Load fixture data synchronously at file parse time
+// Load fixture data synchronously at file parse time, so every vector is registered
+// as a test. A missing or unreadable file throws here and fails the suite.
 const operatorsContent = readFileSync(new URL("../../../../node_modules/@libre-ai/contracts-authority/contracts/fixtures/policy-core-v2/operators.json", import.meta.url), "utf8");
 const operatorsData: OperatorsFile = JSON.parse(operatorsContent);
-const operatorVectors = operatorsData.vectors;
-const aggregationVectors = operatorsData.aggregationVectors;
-const invalidPolicyVectors = operatorsData.invalidPolicyVectors;
+
+// An absent or empty group would register no test and pass silently: refuse it.
+function nonEmptyGroup<T>(name: string, group: T[] | undefined): T[] {
+  if (!Array.isArray(group) || group.length === 0) {
+    throw new Error(`operators.json declares no ${name}`);
+  }
+  return group;
+}
+
+const operatorVectors = nonEmptyGroup("vectors", operatorsData.vectors);
+const aggregationVectors = nonEmptyGroup("aggregationVectors", operatorsData.aggregationVectors);
+const invalidPolicyVectors = nonEmptyGroup(
+  "invalidPolicyVectors",
+  operatorsData.invalidPolicyVectors,
+);
+console.log(
+  `policy-core-ref operator vectors: ${operatorVectors.length} operator, ${aggregationVectors.length} aggregation, ${invalidPolicyVectors.length} invalid-policy case(s) loaded`,
+);
 
 /**
  * Test helper: construct a minimal policy/snapshot/need for operator testing
@@ -146,7 +162,7 @@ function constructTestInputs(
   return { policy, snapshot, need };
 }
 
-describe("operator predicate vectors (28 cases)", () => {
+describe(`operator predicate vectors (${operatorVectors.length} cases)`, () => {
   for (let i = 0; i < operatorVectors.length; i++) {
     const vec = operatorVectors[i];
     if (!vec) {
@@ -192,7 +208,7 @@ describe("operator predicate vectors (28 cases)", () => {
   }
 });
 
-describe("aggregation vectors (5 cases)", () => {
+describe(`aggregation vectors (${aggregationVectors.length} cases)`, () => {
   for (let i = 0; i < aggregationVectors.length; i++) {
     const vec = aggregationVectors[i];
     if (!vec) {
@@ -238,7 +254,7 @@ describe("aggregation vectors (5 cases)", () => {
   }
 });
 
-describe("invalid policy vectors (10 cases)", () => {
+describe(`invalid policy vectors (${invalidPolicyVectors.length} cases)`, () => {
   for (let i = 0; i < invalidPolicyVectors.length; i++) {
     const vec = invalidPolicyVectors[i];
     if (!vec) {

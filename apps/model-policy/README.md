@@ -137,7 +137,8 @@ node tools/quality/build-policy-core-wasm.ts
 cargo run --locked -p policy-core --example check_wasm_imports -- \
   target/wasm32-unknown-unknown/release/policy_core.wasm
 
-# Replay every policy-core-v2 golden vector through the live component (20/20 byte-exact).
+# Replay every policy-core-v2 golden vector through the live component (every case byte-exact;
+# the script prints the count and fails on an empty set).
 bun tools/quality/policy-core-wasm-conformance.ts
 ```
 
