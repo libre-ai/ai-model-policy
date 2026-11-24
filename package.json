@@ -12,7 +12,7 @@
     "bun": ">=1.4.0"
   },
   "overrides": {
-    "fast-uri": "4.1.5",
+    "fast-uri": "4.2.3",
     "@libre-ai/governance": "file:../project-governance",
     "@libre-ai/contracts-authority": "file:../schemas-and-contracts",
     "@libre-ai/contracts": "file:../schemas-and-contracts/packages/sdk-ts",
@@ -39,16 +39,17 @@
     "check:toolchain": "bun run check:bun && bun node_modules/@libre-ai/governance/tools/quality/check-toolchain.ts",
     "check:wit": "bun run check:bun:runtime && bun scripts/check-vendored-wit.ts",
     "check:app": "bun run check:bun:runtime && bun test --cwd packages/policy-core-ref && bun test --cwd apps/model-policy",
+    "check:conformance-adapter": "bun run check:bun:runtime && bun test tools/conformance",
     "check:secret-scan": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-secret-scan.ts",
     "check:personal-data": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-personal-data-boundary.ts",
-    "check:dependency-policy": "bun run check:bun:runtime && bun test tools/quality/check-dependency-policy.test.ts && bun tools/quality/check-dependency-policy.ts",
+    "check:dependency-policy": "bun run check:bun:runtime && bun node_modules/@libre-ai/governance/tools/quality/check-dependency-policy.ts",
     "check:artifact-paths": "bun run check:bun:runtime && bun test tools/quality/machine-paths.test.ts",
     "build:policy-core-wasm": "bun run check:bun:runtime && node tools/quality/build-policy-core-wasm.ts",
     "check:wasm-build": "bun run check:bun:runtime && bun test tools/quality/rust-build-environment.test.ts && bun run build:policy-core-wasm",
     "lint": "bun run check:bun:runtime && biome ci .",
     "pretest": "bun run check:bun",
     "test": "cargo test --locked",
-    "check": "bun run check:bun && bun run check:toolchain && bun run check:wit && bun run check:wasm-build && bun run check:app && bun run check:dependency-policy && bun run check:artifact-paths && bun run check:secret-scan && bun run check:personal-data && bun run lint"
+    "check": "bun run check:bun && bun run check:toolchain && bun run check:wit && bun run check:wasm-build && bun run check:app && bun run check:conformance-adapter && bun run check:dependency-policy && bun run check:artifact-paths && bun run check:secret-scan && bun run check:personal-data && bun run lint"
   },
   "workspaces": [
     "apps/model-policy",
