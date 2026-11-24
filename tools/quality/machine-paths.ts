@@ -4,7 +4,7 @@
 // dependency that path is absolute (`$CARGO_HOME/registry/src/...`), so without a
 // remap the builder's home directory, hence the user name, ships inside the
 // artifact and the same commit yields a different fingerprint on every machine.
-// `trim-paths` is not stable in Cargo 1.97, so recipes pass `--remap-path-prefix`
+// `trim-paths` is not stable in Cargo 1.100, so recipes pass `--remap-path-prefix`
 // themselves, and every recipe scans what it produced: the scan, not the exit
 // code of the build, is the proof.
 //
