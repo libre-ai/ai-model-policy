@@ -4,6 +4,7 @@
 pub mod evaluator;
 pub mod jcs;
 pub mod normalize;
+mod strict_decode;
 pub mod types;
 
 #[cfg(target_arch = "wasm32")]

@@ -2,6 +2,7 @@
 
 use crate::jcs;
 use crate::normalize;
+use crate::strict_decode;
 use crate::types::*;
 use serde_json::{Value, json};
 
@@ -24,12 +25,10 @@ pub fn evaluate(
         return Err(ErrorCode::InputInvalid);
     }
 
-    // Decode with strict JSON parser
-    let policy: Value =
-        serde_json::from_slice(policy_bytes).map_err(|_| ErrorCode::InputInvalid)?;
-    let snapshot: Value =
-        serde_json::from_slice(snapshot_bytes).map_err(|_| ErrorCode::InputInvalid)?;
-    let need: Value = serde_json::from_slice(need_bytes).map_err(|_| ErrorCode::InputInvalid)?;
+    // SEMANTICS.md §2: strict decode (no duplicate member, depth at most 64)
+    let policy = strict_decode::decode(policy_bytes).map_err(|_| ErrorCode::InputInvalid)?;
+    let snapshot = strict_decode::decode(snapshot_bytes).map_err(|_| ErrorCode::InputInvalid)?;
+    let need = strict_decode::decode(need_bytes).map_err(|_| ErrorCode::InputInvalid)?;
 
     // Validate inputs in order (SEMANTICS.md §2)
     validate_inputs(&policy, &snapshot, &need, evaluated_at)?;
