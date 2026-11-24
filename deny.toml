@@ -21,6 +21,10 @@ all-features = true
 
 [advisories]
 yanked = "deny"
+# Written out so that the verdict does not depend on the tool default, which
+# changes from `all` to `workspace` in cargo-deny 0.22.0. `all` is also the
+# only scope that is not a waiver under ADVISORY-WAIVER-POLICY.md.
+unmaintained = "all"
 
 [licenses]
 confidence-threshold = 0.9
